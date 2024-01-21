@@ -16,7 +16,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         let gradientColors: [UIColor] = [.tabmanPrimary, .tabmanSecondary]
         
-        window = UIWindow(frame: UIScreen.main.bounds)
+        window = UIWindow(frame: CGRect(x: 0, y: 0, width: 512, height: 512))
         window?.rootViewController = GradientBackgroundViewController(embedding: ButtonBarExampleViewController(), colors: gradientColors)
         window?.makeKeyAndVisible()
         

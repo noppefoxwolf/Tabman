@@ -93,9 +93,11 @@ internal class CollectionViewInsetCalculator: ViewInsetCalculator<UICollectionVi
         // UITableViewController
         guard isScrollViewController == false else {
             let scrollIndicatorInsets = allRequiredInsets
+            #if os(iOS)
             guard view.scrollIndicatorInsets != scrollIndicatorInsets else {
                 return nil
             }
+            #endif
             return scrollIndicatorInsets
         }
         
@@ -116,9 +118,11 @@ internal class CollectionViewInsetCalculator: ViewInsetCalculator<UICollectionVi
         let bottomInset = abs(min(bottomInsetMinY - relativeFrame.maxY, 0.0))
         
         let scrollIndicatorInsets = UIEdgeInsets(top: topInset, left: leftInset, bottom: bottomInset, right: rightInset)
+        #if os(iOS)
         guard view.scrollIndicatorInsets != scrollIndicatorInsets else {
             return nil
         }
+        #endif
         return scrollIndicatorInsets
     }
 }
